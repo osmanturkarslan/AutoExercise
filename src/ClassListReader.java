@@ -4,22 +4,22 @@ import java.util.*;
 public class ClassListReader {
 
     public static List<Student> readFromFile(String filename) throws IOException {
-        List<Student> studenten = new ArrayList<>();
+        List<Student> students = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = br.readLine()) != null) {
                 line = line.trim();
                 if (!line.isEmpty()) {
-                    String[] parts = line.split("\\s+", 2); // nur 2 Teile: Nachname + Vorname
+                    String[] parts = line.split("\\s+", 2); // Only 2 parts: last name + first name
                     if (parts.length == 2) {
-                        studenten.add(new Student(parts[0], parts[1]));
+                        students.add(new Student(parts[0], parts[1]));
                     } else {
-                        System.out.println("Ungültige Zeile in Klassenliste: " + line);
+                        System.out.println("Invalid line in class list: " + line);
                     }
                 }
             }
         }
-        return studenten;
+        return students;
     }
 }
