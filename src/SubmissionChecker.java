@@ -33,6 +33,8 @@ public class SubmissionChecker {
                     }
                 }
             }
+            // RECURSIVE CALL: check deeper folders as well
+            checkSubmissions(folder, students);
         }
     }
 }
